@@ -3,6 +3,7 @@ description: On mobile it shows a list and pushes to details and on tablet it sh
 version: 1.0.0+1
 author: Rody Davis <rody.davis.jr@gmail.com>
 homepage: https://github.com/AppleEducate/plugins
+maintainer: Rody Davis (@AppleEducate)
 
 environment:
   sdk: ">=2.2.2 <3.0.0"

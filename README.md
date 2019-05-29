@@ -3,6 +3,8 @@
 
 # responsive_scaffold
 
+View the online demo [here](https://fluttercommunity.github.io/responsive_scaffold/)!
+
 On mobile it shows a list and pushes to details and on tablet it shows the List and the selected item.
 
 ## Getting Started

@@ -5,7 +5,23 @@ class MultiColumnNavigationExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThreeColumnNavigation(
+      title: Text('Mailboxes'),
       showDetailsArrows: true,
+      backgroundColor: Colors.grey[100],
+      bottomAppBar: BottomAppBar(
+        elevation: 1,
+        child: Row(
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.filter_list,
+                color: Colors.transparent,
+              ),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
       sections: [
         MainSection(
           label: Text('All Inboxes'),
@@ -17,6 +33,17 @@ class MultiColumnNavigationExample extends StatelessWidget {
               title: Text('Test A $index'),
             );
           },
+          bottomAppBar: BottomAppBar(
+            elevation: 1,
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.filter_list),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
           getDetails: (context, index) {
             return DetailsWidget(
               title: Text('Details'),

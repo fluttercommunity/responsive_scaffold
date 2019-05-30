@@ -13,6 +13,7 @@ class DetailsView extends StatelessWidget {
     this.isFirst = false,
     this.automaticallyImplyLeading = true,
     this.showDetailsArrows = false,
+    this.scaffoldKey,
   })  : _listIndex = listIndex,
         _details = details,
         super(key: key);
@@ -23,10 +24,12 @@ class DetailsView extends StatelessWidget {
   final bool showDetailsArrows;
   final bool isLast, isFirst;
   final bool automaticallyImplyLeading;
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         automaticallyImplyLeading: automaticallyImplyLeading,
         title: !showDetailsArrows

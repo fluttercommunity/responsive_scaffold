@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+import 'package:after_layout/after_layout.dart';
 
 import 'common/index.dart';
 
@@ -33,10 +34,15 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
   int _sectionIndex = 0;
   int _listIndex = 0;
   AutoScrollController controller;
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
-    if (widget.initiallyExpanded) {}
+    if (!widget.initiallyExpanded) if (mounted)
+      setState(() {
+        _expanded = false;
+      });
+
     _setUpController(true);
     super.initState();
   }
@@ -64,6 +70,9 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
       builder: (context, constraints) {
         if (constraints.maxWidth > 720) {
           final _showMenu = constraints.maxWidth < 1100;
+          if (_showMenu) {
+            _expanded = false;
+          }
           return Material(
             child: Row(
               children: <Widget>[
@@ -121,7 +130,7 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                         : null,
                     appBar: AppBar(
                       leading: _showMenu
-                          ? null
+                          ? MenuButton(scaffoldKey: _scaffoldKey)
                           : !_expanded
                               ? IconButton(
                                   icon: Icon(widget.collapsedIconData),
@@ -153,29 +162,36 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                   ),
                 ),
                 Expanded(
-                  child: DetailsView(
-                    automaticallyImplyLeading: false,
-                    isFirst: _listIndex == 0,
-                    isLast: widget.sections[_sectionIndex].itemCount ==
-                        _listIndex + 1,
-                    listIndex: _listIndex,
-                    details: widget.sections[_sectionIndex]
-                        .getDetails(context, _listIndex),
-                    showDetailsArrows: widget.showDetailsArrows,
-                    previous: () {
-                      if (mounted)
-                        setState(() {
-                          _listIndex--;
-                        });
-                      _scrollToIndex(_listIndex);
-                    },
-                    next: () {
-                      if (mounted)
-                        setState(() {
-                          _listIndex++;
-                        });
-                      _scrollToIndex(_listIndex);
-                    },
+                  child: Container(
+                    child: Stack(
+                      children: <Widget>[
+                        DetailsView(
+                          scaffoldKey: _scaffoldKey,
+                          automaticallyImplyLeading: false,
+                          isFirst: _listIndex == 0,
+                          isLast: widget.sections[_sectionIndex].itemCount ==
+                              _listIndex + 1,
+                          listIndex: _listIndex,
+                          details: widget.sections[_sectionIndex]
+                              .getDetails(context, _listIndex),
+                          showDetailsArrows: widget.showDetailsArrows,
+                          previous: () {
+                            if (mounted)
+                              setState(() {
+                                _listIndex--;
+                              });
+                            _scrollToIndex(_listIndex);
+                          },
+                          next: () {
+                            if (mounted)
+                              setState(() {
+                                _listIndex++;
+                              });
+                            _scrollToIndex(_listIndex);
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -230,6 +246,27 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
           ),
           bottomNavigationBar: widget.sections[_sectionIndex]?.bottomAppBar,
         );
+      },
+    );
+  }
+}
+
+class MenuButton extends StatelessWidget {
+  const MenuButton({
+    Key key,
+    @required GlobalKey<ScaffoldState> scaffoldKey,
+  })  : _scaffoldKey = scaffoldKey,
+        super(key: key);
+
+  final GlobalKey<ScaffoldState> _scaffoldKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.menu),
+      onPressed: () {
+        Scaffold.of(context).openDrawer();
+        // _scaffoldKey.currentState.showBodyScrim(true, 0.5);
       },
     );
   }

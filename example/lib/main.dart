@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
   }
 
   void _goToScreen(BuildContext context, Widget child) =>
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => child, fullscreenDialog: true),
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => child),
       );
 }

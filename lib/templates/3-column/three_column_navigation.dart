@@ -8,10 +8,12 @@ class ThreeColumnNavigation extends StatefulWidget {
     this.showDetailsArrows = true,
     this.expandedIconData = Icons.fullscreen_exit,
     this.collapsedIconData = Icons.fullscreen,
+    this.initiallyExpanded = true,
   }) : _adaptive = false;
   List<MainSection> sections;
   final bool _adaptive;
   final bool showDetailsArrows;
+  final bool initiallyExpanded;
   final IconData expandedIconData, collapsedIconData;
   @override
   _ThreeColumnNavigationState createState() => _ThreeColumnNavigationState();
@@ -25,6 +27,7 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
 
   @override
   void initState() {
+    if (widget.initiallyExpanded) {}
     _setUpController(true);
     super.initState();
   }
@@ -142,6 +145,8 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                           },
                           itemCount: _section.itemCount,
                         ),
+                        bottomNavigationBar: _section?.bottomAppBar,
+
                       );
                     },
                   ),
@@ -223,6 +228,7 @@ class MainSection {
     @required this.getDetails,
     @required this.icon,
     @required this.label,
+    this.bottomAppBar,
   });
   final Text label;
   final Icon icon;
@@ -230,6 +236,7 @@ class MainSection {
   final Widget Function(BuildContext context, int index, bool selected)
       itemBuilder;
   final DetailsWidget Function(BuildContext context, int index) getDetails;
+  final Widget bottomAppBar;
 }
 
 class DetailsWidget {

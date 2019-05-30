@@ -4,9 +4,6 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'examples/index.dart';
 
-// The existing imports
-// !! Keep your existing impots here !!
-
 /// main is entry point of Flutter application
 void main() {
   // Desktop platforms aren't a valid platform.
@@ -61,6 +58,10 @@ class HomePage extends StatelessWidget {
           ListTile(
             title: Text('Responsive Layout'),
             onTap: () => _goToScreen(context, LayoutExample()),
+          ),
+          ListTile(
+            title: Text('Multi Column Layout'),
+            onTap: () => _goToScreen(context, MultiColumnNavigationExample()),
           ),
         ],
       ),

@@ -6,10 +6,13 @@ class ThreeColumnNavigation extends StatefulWidget {
   ThreeColumnNavigation({
     @required this.sections,
     this.showDetailsArrows = true,
+    this.expandedIconData = Icons.fullscreen_exit,
+    this.collapsedIconData = Icons.fullscreen,
   }) : _adaptive = false;
   List<MainSection> sections;
   final bool _adaptive;
   final bool showDetailsArrows;
+  final IconData expandedIconData, collapsedIconData;
   @override
   _ThreeColumnNavigationState createState() => _ThreeColumnNavigationState();
 }
@@ -63,7 +66,7 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                     child: Scaffold(
                       appBar: AppBar(
                         leading: IconButton(
-                          icon: Icon(Icons.menu),
+                          icon: Icon(widget.expandedIconData),
                           onPressed: () {
                             if (mounted)
                               setState(() {
@@ -104,7 +107,7 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                         appBar: AppBar(
                           leading: !_expanded && constraints.maxWidth >= 720
                               ? IconButton(
-                                  icon: Icon(Icons.menu),
+                                  icon: Icon(widget.collapsedIconData),
                                   onPressed: () {
                                     if (mounted)
                                       setState(() {

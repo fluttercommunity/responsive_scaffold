@@ -1,13 +1,13 @@
 # Screenshots
 
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/1.png)
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/2.png)
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/6.png)
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/3.png)
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/4.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/1.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/2.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/6.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/3.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/4.png)
 ![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/5.png)
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/6.png)
-![image](https://github.com/fluttercommunity/plugins/blob/master/packages/responsive_scaffold/screenshots/multi-column/7.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/6.png)
+![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/screenshots/multi-column/7.png)
 
 # Example
 

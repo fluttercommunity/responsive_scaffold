@@ -11,7 +11,7 @@ On mobile it shows a list and pushes to details and on tablet it shows the List 
 
 ### 3 Column Layout
 
-[example](/lib/templates/3-column/README.md)
+[example](https://github.com/fluttercommunity/responsive_scaffold/tree/dev/lib/templates/3-column)
 
 ### Responsive Layout
 

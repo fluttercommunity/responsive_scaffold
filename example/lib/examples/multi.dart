@@ -29,8 +29,12 @@ class MultiColumnNavigationExample extends StatelessWidget {
           itemCount: 100,
           itemBuilder: (context, index, selected) {
             return ListTile(
+              leading: CircleAvatar(
+                child: Text(index.toString()),
+              ),
               selected: selected,
-              title: Text('Test A $index'),
+              title: Text('Primary Information'),
+              subtitle: Text('Here are some details about the item'),
             );
           },
           bottomAppBar: BottomAppBar(
@@ -61,8 +65,12 @@ class MultiColumnNavigationExample extends StatelessWidget {
           itemCount: 100,
           itemBuilder: (context, index, selected) {
             return ListTile(
+              leading: CircleAvatar(
+                child: Text(index.toString()),
+              ),
               selected: selected,
-              title: Text('Test B $index'),
+              title: Text('Secondary Information'),
+              subtitle: Text('Here are some details about the item'),
             );
           },
           getDetails: (context, index) {

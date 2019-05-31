@@ -57,11 +57,15 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
 
   Future _scrollToIndex(int value,
       {AutoScrollPosition position = AutoScrollPosition.middle}) async {
-    await controller.scrollToIndex(
-      value,
-      preferPosition: position,
-    );
-    controller.highlight(value);
+    try {
+      controller.scrollToIndex(
+        value,
+        preferPosition: position,
+      );
+      // controller.highlight(value);
+    } on Exception catch (e) {
+      print('Could not scroll to index: $value => $e');
+    }
   }
 
   @override
@@ -112,6 +116,7 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                 Container(
                   width: 400,
                   child: Scaffold(
+                    drawerScrimColor: Colors.transparent,
                     drawer: _showMenu
                         ? SectionsDrawer(
                             sections: widget.sections,

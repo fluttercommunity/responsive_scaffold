@@ -1,6 +1,6 @@
 ## 1.1.0
 
-* Adding 3 Column Layout - [screenshots](/lib/templates/3-column/README.md)
+* Adding 3 Column Layout - [screenshots](https://github.com/fluttercommunity/responsive_scaffold/tree/dev/lib/templates/3-column)
 * Updated Example
 
 ## 1.0.0 - (BREAKING CHANGE) - [05.22.2019]

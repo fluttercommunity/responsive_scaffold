@@ -9,6 +9,10 @@ On mobile it shows a list and pushes to details and on tablet it shows the List 
 
 ## Getting Started
 
+### 3 Column Layout
+
+[example](https://github.com/fluttercommunity/responsive_scaffold/tree/dev/lib/templates/3-column)
+
 ### Responsive Layout
 
 Follows Material Design Layout [Docs](https://material.io/design/layout/responsive-layout-grid.html#grid-behavior). 

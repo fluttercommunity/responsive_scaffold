@@ -15,25 +15,27 @@ class ThreeColumnNavigation extends StatefulWidget {
     this.bottomAppBar,
     this.backgroundColor,
     this.title,
-  }) : _adaptive = false;
-  List<MainSection> sections;
-  final bool _adaptive;
-  final bool showDetailsArrows;
-  final bool initiallyExpanded;
-  final IconData expandedIconData, collapsedIconData;
-  final Widget bottomAppBar;
+  });
+
   final Color backgroundColor;
+  final Widget bottomAppBar;
+  final IconData expandedIconData, collapsedIconData;
+  final bool initiallyExpanded;
+  List<MainSection> sections;
+  final bool showDetailsArrows;
   final Text title;
+
   @override
   _ThreeColumnNavigationState createState() => _ThreeColumnNavigationState();
 }
 
 class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
-  bool _expanded = true;
-  int _sectionIndex = 0;
-  int _listIndex = 0;
   AutoScrollController controller;
+
+  bool _expanded = true;
+  int _listIndex = 0;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  int _sectionIndex = 0;
 
   @override
   void initState() {
@@ -285,9 +287,11 @@ class SectionsDrawer extends StatelessWidget {
   })  : _sectionIndex = sectionIndex,
         super(key: key);
 
-  final int _sectionIndex;
-  final Function(BuildContext, int) sectionChanged;
   final List<MainSection> sections;
+
+  final int _sectionIndex;
+
+  final Function(BuildContext, int) sectionChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -310,13 +314,16 @@ class MainSection {
     @required this.label,
     this.bottomAppBar,
   });
-  final Text label;
+
+  final Widget bottomAppBar;
   final Icon icon;
   final int itemCount;
+  final Text label;
+
   final Widget Function(BuildContext context, int index, bool selected)
       itemBuilder;
+
   final DetailsWidget Function(BuildContext context, int index) getDetails;
-  final Widget bottomAppBar;
 }
 
 class DetailsWidget {
@@ -326,8 +333,9 @@ class DetailsWidget {
     this.title,
     this.bottomAppBar,
   });
-  final Text title;
-  final Widget child;
+
   final List<Widget> actions;
   final Widget bottomAppBar;
+  final Widget child;
+  final Text title;
 }

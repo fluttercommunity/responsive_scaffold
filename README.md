@@ -20,16 +20,16 @@ On mobile it shows a list and pushes to details and on tablet it shows the List 
 
 Follows Material Design Layout [Docs](https://material.io/design/layout/responsive-layout-grid.html#grid-behavior). 
 
-![md-layout](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/md-layout.gif)
+![md-layout](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/md-layout.gif)
 
 Here is a demo on various sizes.
 
-![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/1.png)
-![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/2.png)
-![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/6.png)
-![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/3.png)
-![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/4.png)
-![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/layout/5.png)
+![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/1.png)
+![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/2.png)
+![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/6.png)
+![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/3.png)
+![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/4.png)
+![image](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/layout/5.png)
 
 
 ##### Example
@@ -126,9 +126,9 @@ class LayoutExample extends StatelessWidget {
 * You can use this in two modes `ResponsiveListScaffold` and `ResponsiveListScaffold.builder`.
 * On Mobile the ListView will push to the details screen
 
-![tablet](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/tablet.png)
-![push](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/push.png)
-![mobile](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/screenshots/mobile.png)
+![tablet](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/tablet.png)
+![push](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/push.png)
+![mobile](https://github.com/AppleEducate/plugins/blob/master/packages/responsive_scaffold/doc/screenshots/mobile.png)
 
 * On Tablet it will show a Master Detail View.
 * You can add additional Slivers to the Scrollview and the AppBar is optional.

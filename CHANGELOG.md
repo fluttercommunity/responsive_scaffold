@@ -1,3 +1,8 @@
+## 1.1.1
+
+* Bump Version
+* Updated Info
+
 ## 1.1.0
 
 * Adding 3 Column Layout - [screenshots](https://github.com/fluttercommunity/responsive_scaffold/tree/dev/lib/templates/3-column)

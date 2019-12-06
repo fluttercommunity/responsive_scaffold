@@ -155,7 +155,7 @@ class _TabletViewState extends State<TabletView> {
 
   void reset() {
     setState(() {
-      _index = null;
+      _index = 0;
     });
   }
 
@@ -220,6 +220,11 @@ class _TabletViewState extends State<TabletView> {
                                   });
                                 },
                                 child: new Container(
+                                  color: _index == index
+                                      ? Theme.of(context)
+                                          .chipTheme
+                                          .disabledColor
+                                      : widget?.backgroundColor,
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 8.0),
                                   child: _childDelagate.build(context, index),

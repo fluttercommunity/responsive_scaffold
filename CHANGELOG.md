@@ -1,3 +1,8 @@
+## 1.2.0
+
+* Fixes #6
+* Remove sckrim color
+
 ## 1.1.1
 
 * Bump Version

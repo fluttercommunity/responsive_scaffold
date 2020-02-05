@@ -10,6 +10,8 @@ View the online demo [here](https://fluttercommunity.github.io/responsive_scaffo
 
 On mobile it shows a list and pushes to details and on tablet it shows the List and the selected item.
 
+Online Demo: https://fluttercommunity.github.io/responsive_scaffold/
+
 ## Getting Started
 
 ### 3 Column Layout

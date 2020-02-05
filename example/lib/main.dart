@@ -1,14 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
-import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'examples/index.dart';
 
 /// main is entry point of Flutter application
 void main() {
   // Desktop platforms aren't a valid platform.
-  _setTargetPlatformForDesktop();
-
+  if (!kIsWeb) _setTargetPlatformForDesktop();
   return runApp(MyApp());
 }
 

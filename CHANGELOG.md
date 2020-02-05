@@ -1,3 +1,12 @@
+## 1.3.0
+
+* Thanks to @DenisBarzanov for the PR #6
+* Added app elevation as a field
+* Removed the restrictions on the scaffold FAB, because they were limiting useful functions like scaling. (Changed the type of the button to be Widget, instead of FloatingActionButton
+* Updated Screenshots
+* Updated Example
+* Added Demo
+
 ## 1.2.0
 
 * Fixes #6

@@ -35,7 +35,7 @@ Here is a demo on various sizes.
 ![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/5.png)
 
 
-##### Example
+#### Example
 
 ``` dart 
 import 'package:flutter/material.dart';

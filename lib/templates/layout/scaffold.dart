@@ -113,6 +113,7 @@ class ResponsiveScaffold extends StatelessWidget {
                     ),
                   ),
             appBar: AppBar(
+              elevation: appBarElevation,
               automaticallyImplyLeading: false,
               title: title,
               leading: _MenuButton(iconData: menuIcon),
@@ -174,6 +175,7 @@ class ResponsiveScaffold extends StatelessWidget {
                   ),
                 ),
           appBar: AppBar(
+            elevation: appBarElevation,
             automaticallyImplyLeading: false,
             leading: _MenuButton(iconData: menuIcon),
             title: title,

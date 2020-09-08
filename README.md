@@ -27,12 +27,14 @@ Follows Material Design Layout [Docs](https://material.io/design/layout/responsi
 
 Here is a demo on various sizes.
 
-![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/1.png)
-![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/2.png)
-![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/6.png)
-![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/3.png)
-![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/4.png)
-![image](https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/5.png)
+
+<img src="https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/1.png" width="800">
+<img src="https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/2.png" width="800">
+<img src="https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/6.png" width="800">
+<img src="https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/3.png" width="300">
+<img src="https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/4.png" width="300">
+<img src="https://github.com/fluttercommunity/responsive_scaffold/blob/master/doc/screenshots/layout/5.png" width="300">
+
 
 
 #### Example

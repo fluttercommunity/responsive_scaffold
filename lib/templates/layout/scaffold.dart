@@ -14,6 +14,9 @@ class ResponsiveScaffold extends StatelessWidget {
     this.kTabletBreakpoint = 720.0,
     this.kDesktopBreakpoint = 1440.0,
     this.appBarElevation,
+    this.floatingActionButtonLocation = FloatingActionButtonLocation.endFloat,
+    this.responsiveFloatingActionButtonLocation =
+        ResponsiveFloatingActionButtonLocation.topStartDocked,
   });
 
   final Widget drawer, endDrawer;
@@ -25,6 +28,13 @@ class ResponsiveScaffold extends StatelessWidget {
   final Widget trailing;
 
   final Widget floatingActionButton;
+
+  /// The [FloatingActionButtonLocation] used on small screens
+  final FloatingActionButtonLocation floatingActionButtonLocation;
+
+  /// The [ResponsiveFloatingActionButtonLocation] used on tablet and desktop screens
+  final ResponsiveFloatingActionButtonLocation
+      responsiveFloatingActionButtonLocation;
 
   final kTabletBreakpoint;
   final kDesktopBreakpoint;
@@ -93,8 +103,22 @@ class ResponsiveScaffold extends StatelessWidget {
                 ),
                 if (floatingActionButton != null) ...[
                   Positioned(
-                    top: 100.0,
-                    left: _drawerWidth - 30,
+                    top: responsiveFloatingActionButtonLocation.top != null
+                        ? 84 + responsiveFloatingActionButtonLocation.top
+                        : null,
+                    left: responsiveFloatingActionButtonLocation.left != null
+                        ? responsiveFloatingActionButtonLocation.overDrawer
+                            ? _drawerWidth - 28
+                            : _drawerWidth +
+                                responsiveFloatingActionButtonLocation.left
+                        : null,
+                    bottom: responsiveFloatingActionButtonLocation.bottom,
+                    right: responsiveFloatingActionButtonLocation.right != null
+                        ? responsiveFloatingActionButtonLocation.overDrawer
+                            ? _drawerWidth - 28
+                            : _drawerWidth +
+                                responsiveFloatingActionButtonLocation.right
+                        : null,
                     child: floatingActionButton,
                   )
                 ],
@@ -148,8 +172,16 @@ class ResponsiveScaffold extends StatelessWidget {
                   ),
                   if (floatingActionButton != null) ...[
                     Positioned(
-                      top: 10.0,
-                      left: 10.0,
+                      top: responsiveFloatingActionButtonLocation.top,
+                      left: responsiveFloatingActionButtonLocation.left,
+                      bottom: responsiveFloatingActionButtonLocation.bottom,
+                      right: responsiveFloatingActionButtonLocation.right !=
+                              null
+                          ? responsiveFloatingActionButtonLocation.overDrawer
+                              ? _drawerWidth - 28
+                              : _drawerWidth +
+                                  responsiveFloatingActionButtonLocation.right
+                          : null,
                       child: floatingActionButton,
                     )
                   ],
@@ -190,7 +222,7 @@ class ResponsiveScaffold extends StatelessWidget {
           ),
           body: body,
           floatingActionButton: floatingActionButton,
-          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          floatingActionButtonLocation: floatingActionButtonLocation,
         );
       },
     );
@@ -233,4 +265,35 @@ class _MenuButton extends StatelessWidget {
       },
     );
   }
+}
+
+class ResponsiveFloatingActionButtonLocation {
+  final bool overDrawer;
+  final double top;
+  final double bottom;
+  final double left;
+  final double right;
+  static const topStartDocked = ResponsiveFloatingActionButtonLocation(
+      overDrawer: true, top: 16, left: 16);
+  static const bottomStartDocked = ResponsiveFloatingActionButtonLocation(
+      overDrawer: true, bottom: 16, left: 16);
+  static const topStartFloating = ResponsiveFloatingActionButtonLocation(
+      overDrawer: false, top: 16, left: 8);
+  static const bottomStartFloating = ResponsiveFloatingActionButtonLocation(
+      overDrawer: false, bottom: 16, left: 16);
+  static const topEndFloating = ResponsiveFloatingActionButtonLocation(
+      overDrawer: false, top: 16, right: 8);
+  static const bottomEndFloating = ResponsiveFloatingActionButtonLocation(
+      overDrawer: false, bottom: 16, right: 16);
+  static const topEndDocked = ResponsiveFloatingActionButtonLocation(
+      overDrawer: true, top: 16, right: 16);
+  static const bottomEndDocked = ResponsiveFloatingActionButtonLocation(
+      overDrawer: true, bottom: 16, right: 16);
+
+  const ResponsiveFloatingActionButtonLocation(
+      {this.overDrawer = false, this.top, this.bottom, this.left, this.right})
+      : assert((top == null && bottom == null) ||
+            (left == null && right == null) ||
+            (top != null || bottom != null) ||
+            (left != null && right != null));
 }

@@ -27,7 +27,6 @@ class TabletView extends StatefulWidget {
     @required this.persistentFooterButtons,
     @required this.primary,
     @required this.resizeToAvoidBottomInset,
-    @required this.resizeToAvoidBottomPadding,
     @required this.scaffoldkey,
     @required this.detailScaffoldKey,
     @required this.nullItems,
@@ -63,7 +62,6 @@ class TabletView extends StatefulWidget {
     @required this.persistentFooterButtons,
     @required this.primary,
     @required this.resizeToAvoidBottomInset,
-    @required this.resizeToAvoidBottomPadding,
     @required this.scaffoldkey,
     @required this.detailScaffoldKey,
     @required this.nullItems,
@@ -99,7 +97,6 @@ class TabletView extends StatefulWidget {
     @required this.persistentFooterButtons,
     @required this.primary,
     @required this.resizeToAvoidBottomInset,
-    @required this.resizeToAvoidBottomPadding,
     @required this.scaffoldkey,
     @required this.detailScaffoldKey,
     @required this.nullItems,
@@ -126,7 +123,6 @@ class TabletView extends StatefulWidget {
 
   final FloatingActionButtonAnimator floatingActionButtonAnimator;
 
-  final bool resizeToAvoidBottomPadding;
 
   final bool resizeToAvoidBottomInset;
 
@@ -185,7 +181,6 @@ class _TabletViewState extends State<TabletView> {
               floatingActionButtonAnimator:
                   widget?.floatingActionButtonAnimator,
               resizeToAvoidBottomInset: widget?.resizeToAvoidBottomInset,
-              resizeToAvoidBottomPadding: widget?.resizeToAvoidBottomPadding,
               primary: widget?.primary,
               // extendBody: extendBody,
               backgroundColor: widget?.backgroundColor,

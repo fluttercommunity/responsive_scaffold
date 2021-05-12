@@ -6,33 +6,33 @@ import '../responsive_list.dart';
 
 class TabletView extends StatefulWidget {
   TabletView({
-    Key key,
-    @required this.slivers,
-    @required this.detailBuilder,
-    @required List<Widget> children,
-    @required this.itemNotSelected,
-    @required this.sideMenu,
+    Key? key,
+    required this.slivers,
+    required this.detailBuilder,
+    required List<Widget> children,
+    required this.itemNotSelected,
+    required this.sideMenu,
     this.flexListView = 4,
     this.flexDetailView = 8,
-    @required this.appBar,
-    @required this.backgroundColor,
-    @required this.bottomNavigationBar,
-    @required this.bottomSheet,
-    @required this.drawer,
-    @required this.drawerDragStartBehavior,
-    @required this.endDrawer,
-    @required this.floatingActionButton,
-    @required this.floatingActionButtonAnimator,
-    @required this.floatingActionButtonLocation,
-    @required this.persistentFooterButtons,
-    @required this.primary,
-    @required this.resizeToAvoidBottomInset,
-    @required this.resizeToAvoidBottomPadding,
-    @required this.scaffoldkey,
-    @required this.detailScaffoldKey,
-    @required this.nullItems,
-    @required this.emptyItems,
-  })  : childDelagate = SliverChildListDelegate(
+    required this.appBar,
+    required this.backgroundColor,
+    required this.bottomNavigationBar,
+    required this.bottomSheet,
+    required this.drawer,
+    required this.drawerDragStartBehavior,
+    required this.endDrawer,
+    required this.floatingActionButton,
+    required this.floatingActionButtonAnimator,
+    required this.floatingActionButtonLocation,
+    required this.persistentFooterButtons,
+    required this.primary,
+    required this.resizeToAvoidBottomInset,
+    required this.resizeToAvoidBottomPadding,
+    required this.scaffoldkey,
+    required this.detailScaffoldKey,
+    required this.nullItems,
+    required this.emptyItems,
+  })   : childDelagate = SliverChildListDelegate(
           children,
           addAutomaticKeepAlives: false,
           addRepaintBoundaries: false,
@@ -41,34 +41,34 @@ class TabletView extends StatefulWidget {
         super(key: key);
 
   TabletView.builder({
-    Key key,
-    @required this.slivers,
-    @required this.detailBuilder,
-    @required int itemCount,
-    @required IndexedWidgetBuilder itemBuilder,
-    @required this.itemNotSelected,
-    @required this.sideMenu,
+    Key? key,
+    required this.slivers,
+    required this.detailBuilder,
+    required int itemCount,
+    required IndexedWidgetBuilder itemBuilder,
+    required this.itemNotSelected,
+    required this.sideMenu,
     this.flexListView = 4,
     this.flexDetailView = 8,
-    @required this.appBar,
-    @required this.backgroundColor,
-    @required this.bottomNavigationBar,
-    @required this.bottomSheet,
-    @required this.drawer,
-    @required this.drawerDragStartBehavior,
-    @required this.endDrawer,
-    @required this.floatingActionButton,
-    @required this.floatingActionButtonAnimator,
-    @required this.floatingActionButtonLocation,
-    @required this.persistentFooterButtons,
-    @required this.primary,
-    @required this.resizeToAvoidBottomInset,
-    @required this.resizeToAvoidBottomPadding,
-    @required this.scaffoldkey,
-    @required this.detailScaffoldKey,
-    @required this.nullItems,
-    @required this.emptyItems,
-  })  : childDelagate = SliverChildBuilderDelegate(
+    required this.appBar,
+    required this.backgroundColor,
+    required this.bottomNavigationBar,
+    required this.bottomSheet,
+    required this.drawer,
+    required this.drawerDragStartBehavior,
+    required this.endDrawer,
+    required this.floatingActionButton,
+    required this.floatingActionButtonAnimator,
+    required this.floatingActionButtonLocation,
+    required this.persistentFooterButtons,
+    required this.primary,
+    required this.resizeToAvoidBottomInset,
+    required this.resizeToAvoidBottomPadding,
+    required this.scaffoldkey,
+    required this.detailScaffoldKey,
+    required this.nullItems,
+    required this.emptyItems,
+  })   : childDelagate = SliverChildBuilderDelegate(
           itemBuilder,
           childCount: itemCount,
           addAutomaticKeepAlives: false,
@@ -77,72 +77,72 @@ class TabletView extends StatefulWidget {
         ),
         super(key: key);
 
-  TabletView.custom({
-    Key key,
-    @required this.slivers,
-    @required this.detailBuilder,
-    @required this.childDelagate,
-    @required this.itemNotSelected,
-    @required this.sideMenu,
+  const TabletView.custom({
+    Key? key,
+    required this.slivers,
+    required this.detailBuilder,
+    required this.childDelagate,
+    required this.itemNotSelected,
+    required this.sideMenu,
     this.flexListView = 4,
     this.flexDetailView = 8,
-    @required this.appBar,
-    @required this.backgroundColor,
-    @required this.bottomNavigationBar,
-    @required this.bottomSheet,
-    @required this.drawer,
-    @required this.drawerDragStartBehavior,
-    @required this.endDrawer,
-    @required this.floatingActionButton,
-    @required this.floatingActionButtonAnimator,
-    @required this.floatingActionButtonLocation,
-    @required this.persistentFooterButtons,
-    @required this.primary,
-    @required this.resizeToAvoidBottomInset,
-    @required this.resizeToAvoidBottomPadding,
-    @required this.scaffoldkey,
-    @required this.detailScaffoldKey,
-    @required this.nullItems,
-    @required this.emptyItems,
+    required this.appBar,
+    required this.backgroundColor,
+    required this.bottomNavigationBar,
+    required this.bottomSheet,
+    required this.drawer,
+    required this.drawerDragStartBehavior,
+    required this.endDrawer,
+    required this.floatingActionButton,
+    required this.floatingActionButtonAnimator,
+    required this.floatingActionButtonLocation,
+    required this.persistentFooterButtons,
+    required this.primary,
+    required this.resizeToAvoidBottomInset,
+    required this.resizeToAvoidBottomPadding,
+    required this.scaffoldkey,
+    required this.detailScaffoldKey,
+    required this.nullItems,
+    required this.emptyItems,
   }) : super(key: key);
 
-  final List<Widget> slivers;
+  final List<Widget>? slivers;
   final DetailWidgetBuilder detailBuilder;
-  final Widget itemNotSelected;
-  final Flexible sideMenu;
+  final Widget? itemNotSelected;
+  final Flexible? sideMenu;
   final int flexListView;
   final int flexDetailView;
-  final Widget nullItems, emptyItems;
+  final Widget? nullItems, emptyItems;
 
-  final Widget floatingActionButton;
+  final Widget? floatingActionButton;
 
-  final FloatingActionButtonLocation floatingActionButtonLocation;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
 
-  final Widget bottomNavigationBar;
+  final Widget? bottomNavigationBar;
 
-  final Widget bottomSheet;
+  final Widget? bottomSheet;
 
-  final List<Widget> persistentFooterButtons;
+  final List<Widget>? persistentFooterButtons;
 
-  final FloatingActionButtonAnimator floatingActionButtonAnimator;
+  final FloatingActionButtonAnimator? floatingActionButtonAnimator;
 
-  final bool resizeToAvoidBottomPadding;
+  final bool? resizeToAvoidBottomPadding;
 
-  final bool resizeToAvoidBottomInset;
+  final bool? resizeToAvoidBottomInset;
 
   final bool primary;
 
-  final Key scaffoldkey, detailScaffoldKey;
+  final Key? scaffoldkey, detailScaffoldKey;
 
   // final bool extendBody;
 
   final DragStartBehavior drawerDragStartBehavior;
 
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
-  final PreferredSizeWidget appBar;
+  final PreferredSizeWidget? appBar;
 
-  final Widget drawer, endDrawer;
+  final Widget? drawer, endDrawer;
 
   final SliverChildDelegate childDelagate;
 
@@ -151,7 +151,7 @@ class TabletView extends StatefulWidget {
 }
 
 class _TabletViewState extends State<TabletView> {
-  int _index;
+  int? _index;
 
   void reset() {
     setState(() {
@@ -171,47 +171,47 @@ class _TabletViewState extends State<TabletView> {
       body: Flex(
         direction: Axis.horizontal,
         children: <Widget>[
-          widget?.sideMenu ?? Container(),
+          widget.sideMenu ?? Container(),
           Flexible(
             flex: widget.flexListView,
             child: Scaffold(
-              key: widget?.scaffoldkey,
-              floatingActionButton: widget?.floatingActionButton,
-              floatingActionButtonLocation:
-                  widget?.floatingActionButtonLocation,
-              bottomNavigationBar: widget?.bottomNavigationBar,
-              bottomSheet: widget?.bottomSheet,
-              persistentFooterButtons: widget?.persistentFooterButtons,
-              floatingActionButtonAnimator:
-                  widget?.floatingActionButtonAnimator,
-              resizeToAvoidBottomInset: widget?.resizeToAvoidBottomInset,
-              resizeToAvoidBottomPadding: widget?.resizeToAvoidBottomPadding,
-              primary: widget?.primary,
+              key: widget.scaffoldkey,
+              floatingActionButton: widget.floatingActionButton,
+              floatingActionButtonLocation: widget.floatingActionButtonLocation,
+              bottomNavigationBar: widget.bottomNavigationBar,
+              bottomSheet: widget.bottomSheet,
+              persistentFooterButtons: widget.persistentFooterButtons,
+              floatingActionButtonAnimator: widget.floatingActionButtonAnimator,
+              resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
+              // resizeToAvoidBottomPadding: widget.resizeToAvoidBottomPadding,
+              primary: widget.primary,
               // extendBody: extendBody,
-              backgroundColor: widget?.backgroundColor,
-              drawer: widget?.drawer,
-              endDrawer: widget?.endDrawer,
-              appBar: widget?.appBar,
+              backgroundColor: widget.backgroundColor,
+              drawer: widget.drawer,
+              endDrawer: widget.endDrawer,
+              appBar: widget.appBar,
               body: CustomScrollView(
-                slivers: <Widget>[]
-                  ..addAll(widget.slivers ?? [])
-                  ..add(Builder(
+                slivers: <Widget>[
+                  ...?widget.slivers,
+                  Builder(
                     builder: (BuildContext context) {
-                      SliverChildDelegate _childDelagate =
-                          widget?.childDelagate;
-                      if (_childDelagate?.estimatedChildCount == null &&
-                          widget?.nullItems != null)
+                      final SliverChildDelegate _childDelagate =
+                          widget.childDelagate;
+                      if (_childDelagate.estimatedChildCount == null &&
+                          widget.nullItems != null) {
                         return SliverFillRemaining(child: widget.nullItems);
-                      if (_childDelagate?.estimatedChildCount != null &&
+                      }
+                      if (_childDelagate.estimatedChildCount != null &&
                           _childDelagate.estimatedChildCount == 0 &&
-                          widget?.emptyItems != null)
+                          widget.emptyItems != null) {
                         return SliverFillRemaining(child: widget.emptyItems);
+                      }
                       return SliverList(
                           delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                          return new KeepAlive(
+                          return KeepAlive(
                             keepAlive: true,
-                            child: new IndexedSemantics(
+                            child: IndexedSemantics(
                               index: index,
                               child: GestureDetector(
                                 onTap: () {
@@ -219,12 +219,12 @@ class _TabletViewState extends State<TabletView> {
                                     _index = index;
                                   });
                                 },
-                                child: new Container(
+                                child: Container(
                                   color: _index == index
                                       ? Theme.of(context)
                                           .chipTheme
                                           .disabledColor
-                                      : widget?.backgroundColor,
+                                      : widget.backgroundColor,
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 8.0),
                                   child: _childDelagate.build(context, index),
@@ -233,25 +233,26 @@ class _TabletViewState extends State<TabletView> {
                             ),
                           );
                         },
-                        childCount: _childDelagate?.estimatedChildCount ?? 0,
+                        childCount: _childDelagate.estimatedChildCount ?? 0,
                         addAutomaticKeepAlives: false,
                         addRepaintBoundaries: false,
                         addSemanticIndexes: false,
                       ));
                     },
-                  )),
+                  )
+                ],
               ),
             ),
           ),
           Flexible(
             flex: widget.flexDetailView,
-            child: new _DetailView(
-              detailScaffoldKey: widget?.detailScaffoldKey,
+            child: _DetailView(
+              detailScaffoldKey: widget.detailScaffoldKey,
               details: _index == null ||
-                      _index > widget.childDelagate.estimatedChildCount - 1
+                      _index! > widget.childDelagate.estimatedChildCount! - 1
                   ? null
                   : widget.detailBuilder(context, _index, true),
-              itemNotSelected: widget?.itemNotSelected,
+              itemNotSelected: widget.itemNotSelected,
             ),
           ),
         ],
@@ -262,22 +263,22 @@ class _TabletViewState extends State<TabletView> {
 
 class _DetailView extends StatelessWidget {
   const _DetailView({
-    Key key,
-    @required DetailsScreen details,
-    @required this.itemNotSelected,
-    @required this.detailScaffoldKey,
-  })  : _details = details,
+    Key? key,
+    required DetailsScreen? details,
+    required this.itemNotSelected,
+    required this.detailScaffoldKey,
+  })   : _details = details,
         super(key: key);
 
-  final DetailsScreen _details;
-  final Widget itemNotSelected;
-  final Key detailScaffoldKey;
+  final DetailsScreen? _details;
+  final Widget? itemNotSelected;
+  final Key? detailScaffoldKey;
 
   @override
   Widget build(BuildContext context) {
     if (_details == null) {
       return itemNotSelected ??
-          Center(
+          const Center(
             child: Text("No Item Selected"),
           );
     }

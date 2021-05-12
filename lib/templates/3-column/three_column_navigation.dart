@@ -1,3 +1,4 @@
+import 'dart:developer' as developer show log;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import 'common/index.dart';
 
 class ThreeColumnNavigation extends StatefulWidget {
   ThreeColumnNavigation({
-    @required this.sections,
+    Key? key,
+    required this.sections,
     this.showDetailsArrows = true,
     this.expandedIconData = Icons.fullscreen_exit,
     this.collapsedIconData = Icons.fullscreen,
@@ -15,22 +17,22 @@ class ThreeColumnNavigation extends StatefulWidget {
     this.bottomAppBar,
     this.backgroundColor,
     this.title,
-  });
+  }) : super(key: key);
 
-  final Color backgroundColor;
-  final Widget bottomAppBar;
+  final Color? backgroundColor;
+  final Widget? bottomAppBar;
   final IconData expandedIconData, collapsedIconData;
   final bool initiallyExpanded;
   List<MainSection> sections;
   final bool showDetailsArrows;
-  final Text title;
+  final Text? title;
 
   @override
   _ThreeColumnNavigationState createState() => _ThreeColumnNavigationState();
 }
 
 class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
-  AutoScrollController controller;
+  AutoScrollController? controller;
 
   bool _expanded = true;
   int _listIndex = 0;
@@ -39,10 +41,13 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
 
   @override
   void initState() {
-    if (!widget.initiallyExpanded) if (mounted)
-      setState(() {
-        _expanded = false;
-      });
+    if (!widget.initiallyExpanded) {
+      if (mounted) {
+        setState(() {
+          _expanded = false;
+        });
+      }
+    }
 
     _setUpController(true);
     super.initState();
@@ -59,13 +64,17 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
   Future _scrollToIndex(int value,
       {AutoScrollPosition position = AutoScrollPosition.middle}) async {
     try {
-      controller.scrollToIndex(
+      controller!.scrollToIndex(
         value,
         preferPosition: position,
       );
       // controller.highlight(value);
     } on Exception catch (e) {
-      print('Could not scroll to index: $value => $e');
+      developer.log(
+        'Could not scroll to index: $value',
+        name: 'responsive_scaffold',
+        error: e.toString(),
+      );
     }
   }
 
@@ -82,19 +91,20 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
             child: Row(
               children: <Widget>[
                 if (_expanded)
-                  Container(
+                  SizedBox(
                     width: 300,
                     child: Scaffold(
-                      backgroundColor: widget?.backgroundColor,
+                      backgroundColor: widget.backgroundColor,
                       appBar: AppBar(
-                        title: widget?.title,
+                        title: widget.title,
                         leading: IconButton(
                           icon: Icon(widget.expandedIconData),
                           onPressed: () {
-                            if (mounted)
+                            if (mounted) {
                               setState(() {
                                 _expanded = false;
                               });
+                            }
                           },
                         ),
                       ),
@@ -103,18 +113,19 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                         sectionIndex: _sectionIndex,
                         sectionTap: (index) {
                           if (_sectionIndex != index) {
-                            if (mounted)
+                            if (mounted) {
                               setState(() {
                                 _sectionIndex = index;
                               });
+                            }
                             _setUpController(false);
                           }
                         },
                       ),
-                      bottomNavigationBar: widget?.bottomAppBar,
+                      bottomNavigationBar: widget.bottomAppBar,
                     ),
                   ),
-                Container(
+                SizedBox(
                   width: 400,
                   child: Scaffold(
                     drawerScrimColor: Colors.transparent,
@@ -124,10 +135,11 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                             sectionIndex: _sectionIndex,
                             sectionChanged: (context, index) {
                               if (_sectionIndex != index) {
-                                if (mounted)
+                                if (mounted) {
                                   setState(() {
                                     _sectionIndex = index;
                                   });
+                                }
                                 _setUpController(false);
                                 Navigator.pop(context);
                               }
@@ -141,10 +153,11 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                               ? IconButton(
                                   icon: Icon(widget.collapsedIconData),
                                   onPressed: () {
-                                    if (mounted)
+                                    if (mounted) {
                                       setState(() {
                                         _expanded = true;
                                       });
+                                    }
                                   },
                                 )
                               : null,
@@ -156,48 +169,49 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                       listIndex: _listIndex,
                       listTap: (index) {
                         if (_listIndex != index) {
-                          if (mounted)
+                          if (mounted) {
                             setState(() {
                               _listIndex = index;
                             });
+                          }
                         }
                       },
                     ),
                     bottomNavigationBar:
-                        widget.sections[_sectionIndex]?.bottomAppBar,
+                        widget.sections[_sectionIndex].bottomAppBar,
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    child: Stack(
-                      children: <Widget>[
-                        DetailsView(
-                          scaffoldKey: _scaffoldKey,
-                          automaticallyImplyLeading: false,
-                          isFirst: _listIndex == 0,
-                          isLast: widget.sections[_sectionIndex].itemCount ==
-                              _listIndex + 1,
-                          listIndex: _listIndex,
-                          details: widget.sections[_sectionIndex]
-                              .getDetails(context, _listIndex),
-                          showDetailsArrows: widget.showDetailsArrows,
-                          previous: () {
-                            if (mounted)
-                              setState(() {
-                                _listIndex--;
-                              });
-                            _scrollToIndex(_listIndex);
-                          },
-                          next: () {
-                            if (mounted)
-                              setState(() {
-                                _listIndex++;
-                              });
-                            _scrollToIndex(_listIndex);
-                          },
-                        ),
-                      ],
-                    ),
+                  child: Stack(
+                    children: <Widget>[
+                      DetailsView(
+                        scaffoldKey: _scaffoldKey,
+                        automaticallyImplyLeading: false,
+                        isFirst: _listIndex == 0,
+                        isLast: widget.sections[_sectionIndex].itemCount ==
+                            _listIndex + 1,
+                        listIndex: _listIndex,
+                        details: widget.sections[_sectionIndex]
+                            .getDetails(context, _listIndex),
+                        showDetailsArrows: widget.showDetailsArrows,
+                        previous: () {
+                          if (mounted) {
+                            setState(() {
+                              _listIndex--;
+                            });
+                          }
+                          _scrollToIndex(_listIndex);
+                        },
+                        next: () {
+                          if (mounted) {
+                            setState(() {
+                              _listIndex++;
+                            });
+                          }
+                          _scrollToIndex(_listIndex);
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -210,10 +224,11 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
             sectionIndex: _sectionIndex,
             sectionChanged: (context, index) {
               if (_sectionIndex != index) {
-                if (mounted)
+                if (mounted) {
                   setState(() {
                     _sectionIndex = index;
                   });
+                }
 
                 _setUpController(false);
                 Navigator.pop(context);
@@ -221,7 +236,7 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
             },
           ),
           appBar: AppBar(
-            title: widget.sections[_sectionIndex]?.label,
+            title: widget.sections[_sectionIndex].label,
           ),
           body: SectionList(
             controller: controller,
@@ -229,10 +244,11 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
             listIndex: _listIndex,
             listTap: (index) {
               if (_listIndex != index) {
-                if (mounted)
+                if (mounted) {
                   setState(() {
                     _listIndex = index;
                   });
+                }
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (_) {
                     final _details = widget.sections[_sectionIndex]
@@ -243,14 +259,14 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                           _listIndex == widget.sections.length - 1,
                       listIndex: _listIndex,
                       details: _details,
-                      showDetailsArrows: false,
+                      // showDetailsArrows: false,
                     );
                   },
                 ));
               }
             },
           ),
-          bottomNavigationBar: widget.sections[_sectionIndex]?.bottomAppBar,
+          bottomNavigationBar: widget.sections[_sectionIndex].bottomAppBar,
         );
       },
     );
@@ -259,9 +275,9 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
 
 class MenuButton extends StatelessWidget {
   const MenuButton({
-    Key key,
-    @required GlobalKey<ScaffoldState> scaffoldKey,
-  })  : _scaffoldKey = scaffoldKey,
+    Key? key,
+    required GlobalKey<ScaffoldState> scaffoldKey,
+  })   : _scaffoldKey = scaffoldKey,
         super(key: key);
 
   final GlobalKey<ScaffoldState> _scaffoldKey;
@@ -269,7 +285,7 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.menu),
+      icon: const Icon(Icons.menu),
       onPressed: () {
         Scaffold.of(context).openDrawer();
         // _scaffoldKey.currentState.showBodyScrim(true, 0.5);
@@ -280,11 +296,11 @@ class MenuButton extends StatelessWidget {
 
 class SectionsDrawer extends StatelessWidget {
   const SectionsDrawer({
-    Key key,
-    @required int sectionIndex,
-    @required this.sectionChanged,
-    @required this.sections,
-  })  : _sectionIndex = sectionIndex,
+    Key? key,
+    required int sectionIndex,
+    required this.sectionChanged,
+    required this.sections,
+  })   : _sectionIndex = sectionIndex,
         super(key: key);
 
   final List<MainSection> sections;
@@ -307,15 +323,15 @@ class SectionsDrawer extends StatelessWidget {
 
 class MainSection {
   const MainSection({
-    @required this.itemBuilder,
-    @required this.itemCount,
-    @required this.getDetails,
-    @required this.icon,
-    @required this.label,
+    required this.itemBuilder,
+    required this.itemCount,
+    required this.getDetails,
+    required this.icon,
+    required this.label,
     this.bottomAppBar,
   });
 
-  final Widget bottomAppBar;
+  final Widget? bottomAppBar;
   final Icon icon;
   final int itemCount;
   final Text label;
@@ -328,14 +344,14 @@ class MainSection {
 
 class DetailsWidget {
   const DetailsWidget({
-    @required this.child,
+    required this.child,
     this.actions,
     this.title,
     this.bottomAppBar,
   });
 
-  final List<Widget> actions;
-  final Widget bottomAppBar;
+  final List<Widget>? actions;
+  final Widget? bottomAppBar;
   final Widget child;
-  final Text title;
+  final Text? title;
 }

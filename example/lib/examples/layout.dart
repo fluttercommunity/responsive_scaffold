@@ -5,9 +5,9 @@ class LayoutExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveScaffold(
-      title: Text('Responsive Layout Example'),
+      title: const Text('Responsive Layout Example'),
       drawer: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings Page'),
@@ -65,7 +65,7 @@ class LayoutExample extends StatelessWidget {
         onPressed: () {},
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text('Close'),
           onPressed: () {
             Navigator.pop(context);

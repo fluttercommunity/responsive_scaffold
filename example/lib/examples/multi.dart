@@ -27,7 +27,7 @@ class MultiColumnNavigationExample extends StatelessWidget {
           label: Text('All Inboxes'),
           icon: Icon(Icons.mail),
           itemCount: 100,
-          itemBuilder: (context, index, selected) {
+          itemBuilder: (BuildContext context, int index, bool selected) {
             return ListTile(
               leading: CircleAvatar(
                 child: Text(index.toString()),

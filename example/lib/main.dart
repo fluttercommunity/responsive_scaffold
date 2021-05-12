@@ -16,7 +16,7 @@ void main() {
 /// a supported platform (iOS for macOS, Android for Linux and Windows).
 /// Otherwise, do nothing.
 void _setTargetPlatformForDesktop() {
-  TargetPlatform targetPlatform;
+  TargetPlatform? targetPlatform;
   if (Platform.isMacOS) {
     targetPlatform = TargetPlatform.iOS;
   } else if (Platform.isLinux || Platform.isWindows) {
@@ -40,27 +40,27 @@ class MyApp extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   const HomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Responsive Examples'),
+        title: const Text('Responsive Examples'),
       ),
       body: ListView(
         children: <Widget>[
           ListTile(
-            title: Text('Responsive List'),
+            title: const Text('Responsive List'),
             onTap: () => _goToScreen(context, ListExample()),
           ),
           ListTile(
-            title: Text('Responsive Layout'),
+            title: const Text('Responsive Layout'),
             onTap: () => _goToScreen(context, LayoutExample()),
           ),
           ListTile(
-            title: Text('Multi Column Layout'),
+            title: const Text('Multi Column Layout'),
             onTap: () => _goToScreen(context, MultiColumnNavigationExample()),
           ),
         ],

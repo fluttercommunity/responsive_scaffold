@@ -3,7 +3,7 @@ import 'package:responsive_scaffold/responsive_scaffold.dart';
 
 class ListExample extends StatefulWidget {
   const ListExample({
-    Key key,
+    Key? key,
   });
 
   @override
@@ -11,9 +11,9 @@ class ListExample extends StatefulWidget {
 }
 
 class _ListExampleState extends State<ListExample> {
-  var _scaffoldKey = new GlobalKey<ScaffoldState>();
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  List<String> _items;
+  List<String>? _items;
 
   @override
   void initState() {
@@ -25,22 +25,22 @@ class _ListExampleState extends State<ListExample> {
   Widget build(BuildContext context) {
     return ResponsiveListScaffold.builder(
       scaffoldKey: _scaffoldKey,
-      detailBuilder: (BuildContext context, int index, bool tablet) {
-        final i = _items[index];
+      detailBuilder: (BuildContext context, int? index, bool tablet) {
+        final i = _items![index!];
         return DetailsScreen(
-          body: new ExampleDetailsScreen(
+          body: ExampleDetailsScreen(
             items: _items,
             row: i,
             tablet: tablet,
             onDelete: () {
               setState(() {
-                _items.removeAt(index);
+                _items!.removeAt(index);
               });
               if (!tablet) Navigator.of(context).pop();
             },
             onChanged: (String value) {
               setState(() {
-                _items[index] = value;
+                _items![index] = value;
               });
             },
           ),
@@ -55,7 +55,7 @@ class _ListExampleState extends State<ListExample> {
       ],
       itemCount: _items?.length ?? 0,
       itemBuilder: (BuildContext context, int index) {
-        final i = _items[index];
+        final i = _items![index];
         return ListTile(
           leading: Text(i),
         );
@@ -72,7 +72,7 @@ class _ListExampleState extends State<ListExample> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          _scaffoldKey.currentState.showSnackBar(SnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text("Snackbar!"),
           ));
         },
@@ -83,16 +83,16 @@ class _ListExampleState extends State<ListExample> {
 
 class ExampleDetailsScreen extends StatelessWidget {
   const ExampleDetailsScreen({
-    Key key,
-    @required List<String> items,
-    @required this.row,
-    @required this.tablet,
-    @required this.onDelete,
-    @required this.onChanged,
-  })  : _items = items,
+    Key? key,
+    required List<String>? items,
+    required this.row,
+    required this.tablet,
+    required this.onDelete,
+    required this.onChanged,
+  })   : _items = items,
         super(key: key);
 
-  final List<String> _items;
+  final List<String>? _items;
   final String row;
   final bool tablet;
   final VoidCallback onDelete;
@@ -122,7 +122,7 @@ class ExampleDetailsScreen extends StatelessWidget {
         elevation: 0.0,
         child: Container(
           child: IconButton(
-            icon: Icon(Icons.share),
+            icon: const Icon(Icons.share),
             onPressed: () {},
           ),
         ),

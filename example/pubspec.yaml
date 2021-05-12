@@ -20,6 +20,8 @@ dev_dependencies:
   responsive_scaffold:
     path: ../
 
+  lint: ^1.5.3
+
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 

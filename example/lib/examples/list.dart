@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_scaffold/responsive_scaffold.dart';
 
 class ListExample extends StatefulWidget {
-  const ListExample({
-    Key? key,
-  });
+  const ListExample({Key? key}) : super(key: key);
 
   @override
   _ListExampleState createState() => _ListExampleState();
 }
 
 class _ListExampleState extends State<ListExample> {
-  var _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List<String>? _items;
 
@@ -46,9 +44,9 @@ class _ListExampleState extends State<ListExample> {
           ),
         );
       },
-      nullItems: Center(child: CircularProgressIndicator()),
-      emptyItems: Center(child: Text("No Items Found")),
-      slivers: <Widget>[
+      nullItems: const Center(child: CircularProgressIndicator()),
+      emptyItems: const Center(child: Text("No Items Found")),
+      slivers: const <Widget>[
         SliverAppBar(
           title: Text("App Bar"),
         ),
@@ -62,20 +60,20 @@ class _ListExampleState extends State<ListExample> {
       },
       bottomNavigationBar: BottomAppBar(
         elevation: 0.0,
-        child: Container(
-          child: IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () {},
-          ),
+        child: IconButton(
+          icon: const Icon(Icons.share),
+          onPressed: () {},
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text("Snackbar!"),
-          ));
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Snackbar!"),
+            ),
+          );
         },
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -104,33 +102,29 @@ class ExampleDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         automaticallyImplyLeading: !tablet,
-        title: Text("Details"),
+        title: const Text("Details"),
         actions: [
           IconButton(
-            icon: Icon(Icons.share),
+            icon: const Icon(Icons.share),
             onPressed: () {
-              onChanged(row + " " + DateTime.now().toString());
+              onChanged("$row ${DateTime.now().toString()}");
             },
           ),
           IconButton(
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
             onPressed: onDelete,
           ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 0.0,
-        child: Container(
-          child: IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {},
-          ),
+        child: IconButton(
+          icon: const Icon(Icons.share),
+          onPressed: () {},
         ),
       ),
-      body: Container(
-        child: Center(
-          child: Text("Item: $row"),
-        ),
+      body: Center(
+        child: Text("Item: $row"),
       ),
     );
   }

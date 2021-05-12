@@ -9,7 +9,7 @@ import 'examples/index.dart';
 void main() {
   // Desktop platforms aren't a valid platform.
   if (!kIsWeb) _setTargetPlatformForDesktop();
-  return runApp(MyApp());
+  return runApp(const MyApp());
 }
 
 /// If the current platform is desktop, override the default platform to
@@ -28,12 +28,14 @@ void _setTargetPlatformForDesktop() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light().copyWith(accentColor: Colors.red),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -53,15 +55,16 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           ListTile(
             title: const Text('Responsive List'),
-            onTap: () => _goToScreen(context, ListExample()),
+            onTap: () => _goToScreen(context, const ListExample()),
           ),
           ListTile(
             title: const Text('Responsive Layout'),
-            onTap: () => _goToScreen(context, LayoutExample()),
+            onTap: () => _goToScreen(context, const LayoutExample()),
           ),
           ListTile(
             title: const Text('Multi Column Layout'),
-            onTap: () => _goToScreen(context, MultiColumnNavigationExample()),
+            onTap: () =>
+                _goToScreen(context, const MultiColumnNavigationExample()),
           ),
         ],
       ),

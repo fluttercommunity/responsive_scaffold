@@ -11,7 +11,7 @@ class ListExample extends StatefulWidget {
 class _ListExampleState extends State<ListExample> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  List<String>? _items;
+  late List<String> _items;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _ListExampleState extends State<ListExample> {
     return ResponsiveListScaffold.builder(
       scaffoldKey: _scaffoldKey,
       detailBuilder: (BuildContext context, int? index, bool tablet) {
-        final i = _items![index!];
+        final i = _items[index!];
         return DetailsScreen(
           body: ExampleDetailsScreen(
             items: _items,
@@ -32,13 +32,13 @@ class _ListExampleState extends State<ListExample> {
             tablet: tablet,
             onDelete: () {
               setState(() {
-                _items!.removeAt(index);
+                _items.removeAt(index);
               });
               if (!tablet) Navigator.of(context).pop();
             },
             onChanged: (String value) {
               setState(() {
-                _items![index] = value;
+                _items[index] = value;
               });
             },
           ),
@@ -51,9 +51,9 @@ class _ListExampleState extends State<ListExample> {
           title: Text("App Bar"),
         ),
       ],
-      itemCount: _items?.length ?? 0,
+      itemCount: _items.length,
       itemBuilder: (BuildContext context, int index) {
-        final i = _items![index];
+        final i = _items[index];
         return ListTile(
           leading: Text(i),
         );
@@ -82,7 +82,7 @@ class _ListExampleState extends State<ListExample> {
 class ExampleDetailsScreen extends StatelessWidget {
   const ExampleDetailsScreen({
     Key? key,
-    required List<String>? items,
+    required List<String> items,
     required this.row,
     required this.tablet,
     required this.onDelete,
@@ -90,7 +90,7 @@ class ExampleDetailsScreen extends StatelessWidget {
   })   : _items = items,
         super(key: key);
 
-  final List<String>? _items;
+  final List<String> _items;
   final String row;
   final bool tablet;
   final VoidCallback onDelete;

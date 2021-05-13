@@ -8,13 +8,14 @@ export 'package:responsive_scaffold/data/classes/details.dart';
 
 class ResponsiveListScaffold extends StatelessWidget {
   ResponsiveListScaffold({
+    Key? key,
     this.tabletBreakpoint = 720.0,
-    @required this.detailBuilder,
+    required this.detailBuilder,
     this.appBar,
     this.drawer,
     this.slivers,
     this.endDrawer,
-    @required List<Widget> children,
+    required List<Widget> children,
     this.primary = true,
     // this.extendBody = false,
     this.drawerDragStartBehavior = DragStartBehavior.start,
@@ -37,22 +38,24 @@ class ResponsiveListScaffold extends StatelessWidget {
     this.detailScaffoldKey,
     this.mobileRootNavigator = false,
     this.mobileNavigator,
-  }) : childDelagate = SliverChildListDelegate(
+  })  : childDelagate = SliverChildListDelegate(
           children,
           addAutomaticKeepAlives: false,
           addRepaintBoundaries: false,
           addSemanticIndexes: false,
-        );
+        ),
+        super(key: key);
 
   ResponsiveListScaffold.builder({
+    Key? key,
     this.tabletBreakpoint = 720.0,
-    @required this.detailBuilder,
+    required this.detailBuilder,
     this.appBar,
     this.drawer,
     this.slivers,
     this.endDrawer,
-    @required int itemCount,
-    @required IndexedWidgetBuilder itemBuilder,
+    required int itemCount,
+    required IndexedWidgetBuilder itemBuilder,
     this.primary = true,
     // this.extendBody = false,
     this.drawerDragStartBehavior = DragStartBehavior.start,
@@ -75,22 +78,24 @@ class ResponsiveListScaffold extends StatelessWidget {
     this.detailScaffoldKey,
     this.mobileRootNavigator = false,
     this.mobileNavigator,
-  }) : childDelagate = SliverChildBuilderDelegate(
+  })  : childDelagate = SliverChildBuilderDelegate(
           itemBuilder,
           childCount: itemCount,
           addAutomaticKeepAlives: false,
           addRepaintBoundaries: false,
           addSemanticIndexes: false,
-        );
+        ),
+        super(key: key);
 
-  ResponsiveListScaffold.custom({
+  const ResponsiveListScaffold.custom({
+    Key? key,
     this.tabletBreakpoint = 720.0,
-    @required this.detailBuilder,
+    required this.detailBuilder,
     this.appBar,
     this.drawer,
     this.slivers,
     this.endDrawer,
-    @required this.childDelagate,
+    required this.childDelagate,
     this.primary = true,
     // this.extendBody = false,
     this.drawerDragStartBehavior = DragStartBehavior.start,
@@ -113,33 +118,33 @@ class ResponsiveListScaffold extends StatelessWidget {
     this.detailScaffoldKey,
     this.mobileRootNavigator = false,
     this.mobileNavigator,
-  });
+  }) : super(key: key);
 
   final double tabletBreakpoint;
 
   final DetailWidgetBuilder detailBuilder;
 
-  final PreferredSizeWidget appBar;
+  final PreferredSizeWidget? appBar;
 
-  final Widget drawer, endDrawer;
+  final Widget? drawer, endDrawer;
 
-  final List<Widget> slivers;
+  final List<Widget>? slivers;
 
-  final Widget floatingActionButton;
+  final Widget? floatingActionButton;
 
-  final FloatingActionButtonLocation floatingActionButtonLocation;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
 
-  final Widget bottomNavigationBar;
+  final Widget? bottomNavigationBar;
 
-  final Widget bottomSheet;
+  final Widget? bottomSheet;
 
-  final List<Widget> persistentFooterButtons;
+  final List<Widget>? persistentFooterButtons;
 
-  final FloatingActionButtonAnimator floatingActionButtonAnimator;
+  final FloatingActionButtonAnimator? floatingActionButtonAnimator;
 
-  final bool resizeToAvoidBottomPadding;
+  final bool? resizeToAvoidBottomPadding;
 
-  final bool resizeToAvoidBottomInset;
+  final bool? resizeToAvoidBottomInset;
 
   final bool primary;
 
@@ -147,13 +152,13 @@ class ResponsiveListScaffold extends StatelessWidget {
 
   final DragStartBehavior drawerDragStartBehavior;
 
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
-  final Key scaffoldKey, detailScaffoldKey;
+  final Key? scaffoldKey, detailScaffoldKey;
 
-  final Widget tabletItemNotSelected;
+  final Widget? tabletItemNotSelected;
 
-  final Flexible tabletSideMenu;
+  final Flexible? tabletSideMenu;
 
   final int tabletFlexListView;
 
@@ -161,9 +166,9 @@ class ResponsiveListScaffold extends StatelessWidget {
 
   final bool mobileRootNavigator;
 
-  final NavigatorState mobileNavigator;
+  final NavigatorState? mobileNavigator;
 
-  final Widget nullItems, emptyItems;
+  final Widget? nullItems, emptyItems;
 
   final SliverChildDelegate childDelagate;
 
@@ -214,7 +219,7 @@ class ResponsiveListScaffold extends StatelessWidget {
           persistentFooterButtons: persistentFooterButtons,
           floatingActionButtonAnimator: floatingActionButtonAnimator,
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-          resizeToAvoidBottomPadding: resizeToAvoidBottomPadding,
+          // resizeToAvoidBottomPadding: resizeToAvoidBottomPadding,
           primary: primary,
           // extendBody: extendBody,
           backgroundColor: backgroundColor,
@@ -238,4 +243,4 @@ class ResponsiveListScaffold extends StatelessWidget {
 }
 
 typedef DetailWidgetBuilder = DetailsScreen Function(
-    BuildContext context, int index, bool tablet);
+    BuildContext context, int? index, bool tablet);

@@ -9,14 +9,14 @@ import 'examples/index.dart';
 void main() {
   // Desktop platforms aren't a valid platform.
   if (!kIsWeb) _setTargetPlatformForDesktop();
-  return runApp(MyApp());
+  return runApp(const MyApp());
 }
 
 /// If the current platform is desktop, override the default platform to
 /// a supported platform (iOS for macOS, Android for Linux and Windows).
 /// Otherwise, do nothing.
 void _setTargetPlatformForDesktop() {
-  TargetPlatform targetPlatform;
+  TargetPlatform? targetPlatform;
   if (Platform.isMacOS) {
     targetPlatform = TargetPlatform.iOS;
   } else if (Platform.isLinux || Platform.isWindows) {
@@ -28,40 +28,43 @@ void _setTargetPlatformForDesktop() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light().copyWith(accentColor: Colors.red),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
   const HomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Responsive Examples'),
+        title: const Text('Responsive Examples'),
       ),
       body: ListView(
         children: <Widget>[
           ListTile(
-            title: Text('Responsive List'),
-            onTap: () => _goToScreen(context, ListExample()),
+            title: const Text('Responsive List'),
+            onTap: () => _goToScreen(context, const ListExample()),
           ),
           ListTile(
-            title: Text('Responsive Layout'),
-            onTap: () => _goToScreen(context, LayoutExample()),
+            title: const Text('Responsive Layout'),
+            onTap: () => _goToScreen(context, const LayoutExample()),
           ),
           ListTile(
-            title: Text('Multi Column Layout'),
-            onTap: () => _goToScreen(context, MultiColumnNavigationExample()),
+            title: const Text('Multi Column Layout'),
+            onTap: () =>
+                _goToScreen(context, const MultiColumnNavigationExample()),
           ),
         ],
       ),

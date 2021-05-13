@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:responsive_scaffold/responsive_scaffold.dart';
 
 class MultiColumnNavigationExample extends StatelessWidget {
+  const MultiColumnNavigationExample({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ThreeColumnNavigation(
-      title: Text('Mailboxes'),
-      showDetailsArrows: true,
+      title: const Text('Mailboxes'),
+      // showDetailsArrows: true,
       backgroundColor: Colors.grey[100],
       bottomAppBar: BottomAppBar(
         elevation: 1,
         child: Row(
           children: <Widget>[
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.filter_list,
                 color: Colors.transparent,
               ),
@@ -24,17 +26,17 @@ class MultiColumnNavigationExample extends StatelessWidget {
       ),
       sections: [
         MainSection(
-          label: Text('All Inboxes'),
-          icon: Icon(Icons.mail),
+          label: const Text('All Inboxes'),
+          icon: const Icon(Icons.mail),
           itemCount: 100,
-          itemBuilder: (context, index, selected) {
+          itemBuilder: (BuildContext context, int index, bool selected) {
             return ListTile(
               leading: CircleAvatar(
                 child: Text(index.toString()),
               ),
               selected: selected,
-              title: Text('Primary Information'),
-              subtitle: Text('Here are some details about the item'),
+              title: const Text('Primary Information'),
+              subtitle: const Text('Here are some details about the item'),
             );
           },
           bottomAppBar: BottomAppBar(
@@ -42,7 +44,7 @@ class MultiColumnNavigationExample extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.filter_list),
+                  icon: const Icon(Icons.filter_list),
                   onPressed: () {},
                 ),
               ],
@@ -50,7 +52,7 @@ class MultiColumnNavigationExample extends StatelessWidget {
           ),
           getDetails: (context, index) {
             return DetailsWidget(
-              title: Text('Details'),
+              title: const Text('Details'),
               child: Center(
                 child: Text(
                   index.toString(),
@@ -60,8 +62,8 @@ class MultiColumnNavigationExample extends StatelessWidget {
           },
         ),
         MainSection(
-          label: Text('Sent Mail'),
-          icon: Icon(Icons.send),
+          label: const Text('Sent Mail'),
+          icon: const Icon(Icons.send),
           itemCount: 100,
           itemBuilder: (context, index, selected) {
             return ListTile(
@@ -69,16 +71,16 @@ class MultiColumnNavigationExample extends StatelessWidget {
                 child: Text(index.toString()),
               ),
               selected: selected,
-              title: Text('Secondary Information'),
-              subtitle: Text('Here are some details about the item'),
+              title: const Text('Secondary Information'),
+              subtitle: const Text('Here are some details about the item'),
             );
           },
           getDetails: (context, index) {
             return DetailsWidget(
-              title: Text('Details'),
+              title: const Text('Details'),
               actions: [
                 IconButton(
-                  icon: Icon(Icons.share),
+                  icon: const Icon(Icons.share),
                   onPressed: () {},
                 ),
               ],

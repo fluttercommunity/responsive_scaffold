@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_scaffold/responsive_scaffold.dart';
 
 class LayoutExample extends StatelessWidget {
+  const LayoutExample({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveScaffold(
-      title: Text('Responsive Layout Example'),
+      title: const Text('Responsive Layout Example'),
       drawer: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings Page'),
@@ -30,15 +32,15 @@ class LayoutExample extends StatelessWidget {
       endDrawer: ListView(
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.filter_list),
-            title: Text('Filter List'),
-            subtitle: Text('Hide and show items'),
+            leading: const Icon(Icons.filter_list),
+            title: const Text('Filter List'),
+            subtitle: const Text('Hide and show items'),
             trailing: Switch(
               value: true,
               onChanged: (val) {},
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.image_aspect_ratio),
             title: Text('Size Settings'),
             subtitle: Text('Change size of images'),
@@ -50,9 +52,9 @@ class LayoutExample extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.sort_by_alpha),
-            title: Text('Sort List'),
-            subtitle: Text('Change layout behavior'),
+            leading: const Icon(Icons.sort_by_alpha),
+            title: const Text('Sort List'),
+            subtitle: const Text('Change layout behavior'),
             trailing: Switch(
               value: false,
               onChanged: (val) {},
@@ -61,21 +63,21 @@ class LayoutExample extends StatelessWidget {
         ],
       ),
       trailing: IconButton(
-        icon: Icon(Icons.search),
+        icon: const Icon(Icons.search),
         onPressed: () {},
       ),
       body: Center(
-        child: RaisedButton(
-          child: Text('Close'),
+        child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
+          child: const Text('Close'),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         backgroundColor: Theme.of(context).accentColor,
         onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }

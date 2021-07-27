@@ -251,7 +251,7 @@ class _TabletViewState extends State<TabletView> {
               details: _index == null ||
                       _index! > widget.childDelagate.estimatedChildCount! - 1
                   ? null
-                  : widget.detailBuilder(context, _index, true),
+                  : widget.detailBuilder(context, _index!, true),
               itemNotSelected: widget.itemNotSelected,
             ),
           ),

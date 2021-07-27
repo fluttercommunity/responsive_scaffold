@@ -5,7 +5,6 @@ import '../three_column_navigation.dart';
 class DetailsView extends StatelessWidget {
   const DetailsView({
     Key? key,
-    required int listIndex,
     required DetailsWidget details,
     this.previous,
     this.next,
@@ -14,11 +13,10 @@ class DetailsView extends StatelessWidget {
     this.automaticallyImplyLeading = true,
     this.showDetailsArrows = false,
     this.scaffoldKey,
-  })  : _listIndex = listIndex,
+  })  : 
         _details = details,
         super(key: key);
 
-  final int _listIndex;
   final DetailsWidget _details;
   final VoidCallback? previous, next;
   final bool showDetailsArrows;

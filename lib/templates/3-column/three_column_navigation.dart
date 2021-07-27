@@ -7,7 +7,7 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 import 'common/index.dart';
 
 class ThreeColumnNavigation extends StatefulWidget {
-  ThreeColumnNavigation({
+  const ThreeColumnNavigation({
     Key? key,
     required this.sections,
     this.showDetailsArrows = true,
@@ -23,7 +23,7 @@ class ThreeColumnNavigation extends StatefulWidget {
   final Widget? bottomAppBar;
   final IconData expandedIconData, collapsedIconData;
   final bool initiallyExpanded;
-  List<MainSection> sections;
+  final List<MainSection> sections;
   final bool showDetailsArrows;
   final Text? title;
 
@@ -190,7 +190,6 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                         isFirst: _listIndex == 0,
                         isLast: widget.sections[_sectionIndex].itemCount ==
                             _listIndex + 1,
-                        listIndex: _listIndex,
                         details: widget.sections[_sectionIndex]
                             .getDetails(context, _listIndex),
                         showDetailsArrows: widget.showDetailsArrows,
@@ -257,7 +256,6 @@ class _ThreeColumnNavigationState extends State<ThreeColumnNavigation> {
                       isFirst: _listIndex == 0,
                       isLast: widget.sections.isNotEmpty &&
                           _listIndex == widget.sections.length - 1,
-                      listIndex: _listIndex,
                       details: _details,
                       // showDetailsArrows: false,
                     );
@@ -288,7 +286,7 @@ class MenuButton extends StatelessWidget {
       icon: const Icon(Icons.menu),
       onPressed: () {
         Scaffold.of(context).openDrawer();
-        // _scaffoldKey.currentState.showBodyScrim(true, 0.5);
+        _scaffoldKey.currentState?.showBodyScrim(true, 0.5);
       },
     );
   }

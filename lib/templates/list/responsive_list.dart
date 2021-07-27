@@ -243,4 +243,4 @@ class ResponsiveListScaffold extends StatelessWidget {
 }
 
 typedef DetailWidgetBuilder = DetailsScreen Function(
-    BuildContext context, int? index, bool tablet);
+    BuildContext context, int index, bool tablet);

@@ -23,11 +23,10 @@ class _ListExampleState extends State<ListExample> {
   Widget build(BuildContext context) {
     return ResponsiveListScaffold.builder(
       scaffoldKey: _scaffoldKey,
-      detailBuilder: (BuildContext context, int? index, bool tablet) {
-        final i = _items[index!];
+      detailBuilder: (BuildContext context, int index, bool tablet) {
+        final i = _items[index];
         return DetailsScreen(
           body: ExampleDetailsScreen(
-            items: _items,
             row: i,
             tablet: tablet,
             onDelete: () {
@@ -82,15 +81,13 @@ class _ListExampleState extends State<ListExample> {
 class ExampleDetailsScreen extends StatelessWidget {
   const ExampleDetailsScreen({
     Key? key,
-    required List<String> items,
     required this.row,
     required this.tablet,
     required this.onDelete,
     required this.onChanged,
-  })   : _items = items,
+  })   : 
         super(key: key);
 
-  final List<String> _items;
   final String row;
   final bool tablet;
   final VoidCallback onDelete;

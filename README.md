@@ -166,8 +166,8 @@ class _ListExampleState extends State<ListExample> {
   Widget build(BuildContext context) {
     return ResponsiveListScaffold.builder(
       scaffoldKey: _scaffoldKey,
-      detailBuilder: (BuildContext context, int? index, bool tablet) {
-        final i = _items[index!];
+      detailBuilder: (BuildContext context, int index, bool tablet) {
+        final i = _items[index];
         return DetailsScreen(
           body: ExampleDetailsScreen(
             items: _items,
